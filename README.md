@@ -8,8 +8,7 @@ to install this project firstly you have to download and install next tools:
  2. java sdk 1.7 or above
  3. mongodb
 
- Install MongoDB as described here:
- http://docs.mongodb.org/manual/installation/
+Install MongoDB as described here: http://docs.mongodb.org/manual/installation/
 
  pull last code changes from repository
  ensure that mongod process is running
@@ -41,3 +40,7 @@ From project directory in terminal execute following commands:
 ```
 ./money3.sh start
 ```
+
+It will take several minutes on first start because maven have to download all dependencies.
+
+Application available on url: http://localhost:8082
