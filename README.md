@@ -40,7 +40,11 @@ From project directory in terminal execute following commands:
 ```
 ./money3.sh start
 ```
+for this script also available "stop", "restart", "status" options.
+
 
 It will take several minutes on first start because maven have to download all dependencies.
 
 Application available on url: http://localhost:8082
+
+Last version (updates every day) always available here: http://money3.zapto.org
