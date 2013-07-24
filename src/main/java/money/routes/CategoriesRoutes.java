@@ -44,14 +44,19 @@ public class CategoriesRoutes {
 
                 TreeMap incSet = categoriesDAO.getCategories(username, true);
                 TreeMap expSet = categoriesDAO.getCategories(username, false);
+                if (username == null) {
+                    // looks like a bad request. user is not logged in
+                    response.redirect("/login");
+                } else {
 
-                root.put("user", username);
-                root.put("iCategories", incSet);
-                root.put("expCategories", expSet);
-                root.put("iCategoriesSize", incSet.size());
-                root.put("expCategoriesSize", expSet.size());
+                    root.put("user", username);
+                    root.put("iCategories", incSet);
+                    root.put("expCategories", expSet);
+                    root.put("iCategoriesSize", incSet.size());
+                    root.put("expCategoriesSize", expSet.size());
 
-                template.process(root, writer);
+                    template.process(root, writer);
+                }
             }
         });
 

@@ -46,11 +46,18 @@ public class AccountRoutes {
                 String username = sessionDAO.findUserNameBySessionId(cookie);
                 SimpleHash root = new SimpleHash();
                 TreeMap accounts = accountsDAO.getAccounts(username);
-                root.put("user", username);
-                root.put("accounts", accounts);
-                root.put("accountsSize", accounts.size());
 
-                template.process(root, writer);
+                if (username == null) {
+                    // looks like a bad request. user is not logged in
+                    response.redirect("/login");
+                } else {
+                    root.put("user", username);
+                    root.put("accounts", accounts);
+                    root.put("accountsSize", accounts.size());
+
+                    template.process(root, writer);
+                }
+
             }
         });
 
