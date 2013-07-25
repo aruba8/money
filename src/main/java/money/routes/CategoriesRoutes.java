@@ -85,10 +85,8 @@ public class CategoriesRoutes {
                 if (add.equals("true") && isIncome != null) {
                     categoriesDAO.addCategory(username, categoryName, isIncome);
                 } else if (add.equals("false")) {
-                    System.out.println(newParams);
                     categoriesDAO.deleteCategories(username, newParams);
                 }
-
                 response.redirect("/categories");
 
             }

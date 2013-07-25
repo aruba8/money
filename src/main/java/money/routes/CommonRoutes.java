@@ -9,6 +9,8 @@ import money.MoneyController;
 import money.logic.SessionDAO;
 import money.logic.UserDAO;
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import spark.Request;
 import spark.Response;
 
@@ -30,6 +32,9 @@ public class CommonRoutes {
     private Configuration cfg;
     private SessionDAO sessionDAO;
     private UserDAO userDAO;
+
+    Logger logger = LogManager.getLogger(CommonRoutes.class.getName());
+
 
     public CommonRoutes(final Configuration cfg, final DB moneyDB) {
         this.cfg = cfg;
@@ -81,7 +86,7 @@ public class CommonRoutes {
                 String username = request.queryParams("username");
                 String password = request.queryParams("password");
 
-                System.out.println("Login: User submitted: " + username + "  " + password);
+                logger.trace("Login: User submitted: " + username + "  " + password);
 
                 DBObject user = userDAO.validateLogin(username, password);
 
@@ -100,7 +105,6 @@ public class CommonRoutes {
                     }
                 } else {
                     SimpleHash root = new SimpleHash();
-
 
                     root.put("username", StringEscapeUtils.escapeHtml4(username));
                     root.put("password", "");
