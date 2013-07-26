@@ -1,0 +1,7 @@
+<suite name="money">
+    <test name="money">
+        <packages>
+            <package name=""
+        </packages>
+    </test>
+</suite>
