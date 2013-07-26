@@ -1,7 +1,8 @@
 <suite name="money">
     <test name="money">
         <packages>
-            <package name=""
+            <package name="money.logic"/>
+            <package name="money.routes"/>
         </packages>
     </test>
 </suite>
