@@ -1,6 +1,7 @@
 package money.logic;
 
 import com.mongodb.*;
+import org.bson.types.ObjectId;
 
 import java.util.Set;
 import java.util.TreeMap;
@@ -43,8 +44,11 @@ public class AccountsDAO {
 
     public void deleteAccounts(String username, Set<String> accountsToDelete) {   //todo
         BasicDBList list = new BasicDBList();
-        list.addAll(accountsToDelete);
-        DBObject query = new BasicDBObject("user", username).append("accountName", new BasicDBObject("$in", list));
-        accountsCollection.remove(query);
+        for (String id : accountsToDelete) {
+            list.add(new ObjectId(id));
+        }
+
+        DBObject query = new BasicDBObject("user", username).append("_id", new BasicDBObject("$in", list));
+        accountsCollection.update(query, new BasicDBObject("$set", new BasicDBObject("isActive", false)), false, true);
     }
 }
