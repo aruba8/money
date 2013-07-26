@@ -6,7 +6,6 @@ import freemarker.template.SimpleHash;
 import freemarker.template.TemplateException;
 import money.MoneyController;
 import money.logic.AccountsDAO;
-import money.logic.CategoriesDAO;
 import money.logic.SessionDAO;
 import org.apache.commons.lang3.StringEscapeUtils;
 import spark.Request;
@@ -27,13 +26,11 @@ import static spark.Spark.post;
 public class AccountRoutes {
     private Configuration cfg;
     private SessionDAO sessionDAO;
-    private CategoriesDAO categoriesDAO;
     private AccountsDAO accountsDAO;
 
     public AccountRoutes(final Configuration cfg, final DB moneyDB) {
         this.cfg = cfg;
         this.sessionDAO = new SessionDAO(moneyDB);
-        this.categoriesDAO = new CategoriesDAO(moneyDB);
         this.accountsDAO = new AccountsDAO(moneyDB);
     }
 
