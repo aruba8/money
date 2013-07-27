@@ -24,7 +24,7 @@
         <tbody>
         <tr>
             <td>Expenses</td>
-            <td><input type="text" value=""></td>
+            <td><input type="text" name="expenses" value=""></td>
         </tr>
         <tr>
             <td>Category</td>

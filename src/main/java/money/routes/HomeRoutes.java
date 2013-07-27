@@ -8,6 +8,7 @@ import money.MoneyController;
 import money.logic.AccountsDAO;
 import money.logic.CategoriesDAO;
 import money.logic.SessionDAO;
+import money.logic.TransactionsDAO;
 import spark.Request;
 import spark.Response;
 
@@ -16,6 +17,7 @@ import java.io.Writer;
 import java.util.TreeMap;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 
 /**
@@ -27,12 +29,14 @@ public class HomeRoutes {
     private SessionDAO sessionDAO;
     private CategoriesDAO categoriesDAO;
     private AccountsDAO accountsDAO;
+    private TransactionsDAO transactionsDAO;
 
     public HomeRoutes(final Configuration cfg, final DB moneyDB) {
         this.cfg = cfg;
         this.sessionDAO = new SessionDAO(moneyDB);
         this.categoriesDAO = new CategoriesDAO(moneyDB);
         this.accountsDAO = new AccountsDAO(moneyDB);
+        this.transactionsDAO = new TransactionsDAO(moneyDB);
     }
 
     public void initHomePage() throws IOException {
@@ -55,6 +59,28 @@ public class HomeRoutes {
                     root.put("accounts", accounts);
                     template.process(root, writer);
                 }
+            }
+        });
+
+        post(new FreemarkerBasedRoute("/", "home.ftl", cfg) {
+            @Override
+            protected void doHandle(Request request, Response response, Writer writer) throws IOException, TemplateException {
+                String username = sessionDAO.findUserNameBySessionId(MoneyController.getSessionCookie(request));
+                String accountId = request.queryParams("account");
+                String categoryId = request.queryParams("category");
+                String comment = request.queryParams("comment");
+
+                Double sum = Double.parseDouble(request.queryParams("expenses"));
+
+                if (sum == 0 || sum == null) {
+                    response.redirect("/");
+                }
+
+                transactionsDAO.addTransaction(username, accountId, categoryId, false, sum, comment);
+
+                response.redirect("/");
+
+
             }
         });
 
