@@ -1,31 +1,20 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title>Главная</title>
-    <style type="text/css">
-        .label {
-            text-align: right
-        }
-
-        .error {
-            color: red
-        }
-    </style>
+    <title>Доходы</title>
 
 </head>
-
 <body>
-<a href="/accounts">Счета</a>
-<a href="/categories">Категории</a>
-<a href="/income">Доходы</a>
+
+<a href="/">На главную</a>
 
 <form method="post">
     <table>
         <tbody>
         <tr>
-            <td>Расход</td>
-            <td><input type="text" name="expenses" value=""></td>
+            <td>Доход</td>
+            <td><input type="text" name="sum"/></td>
+            <td><input type="submit" value="ок"/></td>
         </tr>
         <tr>
             <td>Категория</td>
@@ -36,6 +25,7 @@
                 </#list>
                 </select>
             </td>
+            <td></td>
         </tr>
         <tr>
             <td>Счет</td>
@@ -46,25 +36,16 @@
                 </#list>
                 </select>
             </td>
+            <td></td>
         </tr>
         <tr>
             <td>Комментарий</td>
-            <td><input type="text" name="comment"></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="ОК"></td>
-            <td></td>
+            <td><input type="text" name="comment"/></td>
         </tr>
         </tbody>
     </table>
 </form>
 
-<#list accountsWithSum?keys as account>
-
-<li>${account} : ${accountsWithSum[account]}</li>
-
-</#list>
-
-<a href="/logout">Выход</a>
 </body>
+
 </html>

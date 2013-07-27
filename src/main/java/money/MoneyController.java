@@ -4,10 +4,7 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import freemarker.template.Configuration;
-import money.routes.AccountRoutes;
-import money.routes.CategoriesRoutes;
-import money.routes.CommonRoutes;
-import money.routes.HomeRoutes;
+import money.routes.*;
 import spark.Request;
 
 import javax.servlet.http.Cookie;
@@ -24,6 +21,7 @@ public class MoneyController {
     private final CategoriesRoutes categoriesRoutes;
     private final HomeRoutes homeRoutes;
     private final CommonRoutes commonRoutes;
+    private final IncomeRoutes incomeRoutes;
 
     public static void main(String[] args) throws IOException {
         if (args.length == 0) {
@@ -44,6 +42,7 @@ public class MoneyController {
         categoriesRoutes = new CategoriesRoutes(cfg, moneyDB);
         homeRoutes = new HomeRoutes(cfg, moneyDB);
         commonRoutes = new CommonRoutes(cfg, moneyDB);
+        incomeRoutes = new IncomeRoutes(cfg, moneyDB);
 
         setPort(8082);
 
@@ -51,6 +50,7 @@ public class MoneyController {
         categoriesRoutes.initCategoriesPage();
         homeRoutes.initHomePage();
         commonRoutes.initCommonPages();
+        incomeRoutes.initIncomePage();
     }
 
 
