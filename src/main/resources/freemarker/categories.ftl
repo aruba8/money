@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Categories</title>
     <style type="text/css">
@@ -21,26 +21,28 @@
 
 <h3>Categories</h3>
 
-<#if iCategoriesSize != 0>
+<#if iCategoriesSize+expCategoriesSize gt 0 >
 <form method="post">
-    <#list iCategories?keys as category>
-        <li><input type="checkbox" name=${category}> ${iCategories[category]}</li>
-    </#list>
-    <input type="hidden" name="add" value="false">
-    <input type="submit" value="delete category">
+    <#if iCategoriesSize != 0>
+        <h4>Income</h4>
+        <#list iCategories?keys as category>
+            <li><input type="checkbox" name=${category}> ${iCategories[category]}</li>
+        </#list>
+    </#if>
 
-</form>
+    <#if expCategoriesSize != 0>
+        <h4>Expenses</h4>
+        <#list expCategories?keys as category>
+            <li><input type="checkbox" name=${category}> ${expCategories[category]}</li>
+        </#list>
+        <input type="hidden" name="add" value="false">
+    </#if>
+    </br>
+    </br>
+    <input type="submit" value="delete category">
 </#if>
 
-<#if expCategoriesSize != 0>
-<form method="post">
-    <#list expCategories?keys as category>
-        <li><input type="checkbox" name=${category}> ${expCategories[category]}</li>
-    </#list>
-    <input type="hidden" name="add" value="false">
-    <input type="submit" value="delete category">
 </form>
-</#if>
 
 
 <form method="post">

@@ -45,7 +45,7 @@ public class CategoriesDAO {
         return map;
     }
 
-    public void deleteCategories(String username, Set<String> categoriesToDelete) {  //todo
+    public void deleteCategories(String username, Set<String> categoriesToDelete) {
         BasicDBList list = new BasicDBList();
 
         for (String id : categoriesToDelete) {
