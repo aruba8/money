@@ -1,10 +1,12 @@
 package money.logic;
 
+import com.mongodb.AggregationOutput;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 
 import java.util.Date;
+import java.util.NoSuchElementException;
 
 /**
  * author: erik
@@ -22,7 +24,7 @@ public class TransactionsDAO {
                 .append("accountId", accountId)
                 .append("categoryId", categoryId)
                 .append("isIncome", income)
-                .append("sum", -sum)
+                .append("sum", sum)
                 .append("date", new Date());
 
 
@@ -31,6 +33,19 @@ public class TransactionsDAO {
         }
 
         transactionsCollection.insert(query);
+    }
+
+    public Double getSumOfAccount(String accountId) {
+        BasicDBObject groupQuery = new BasicDBObject("$group", new BasicDBObject("_id", "$accountId").append("sum", new BasicDBObject("$sum", "$sum")));
+        BasicDBObject matchQuery = new BasicDBObject("$match", new BasicDBObject("_id", accountId));
+        AggregationOutput output = transactionsCollection.aggregate(groupQuery, matchQuery);
+        String ds;
+        try {
+            ds = output.results().iterator().next().get("sum").toString();
+        } catch (NoSuchElementException e) {
+            return 0D;
+        }
+        return Double.parseDouble(ds);
     }
 
 

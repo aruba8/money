@@ -57,6 +57,13 @@
         </tbody>
     </table>
 </form>
+
+<#list accountsWithSum?keys as account>
+
+<li>${account} : ${accountsWithSum[account]}</li>
+
+</#list>
+
 <a href="/logout">Logout</a>
 </body>
 </html>

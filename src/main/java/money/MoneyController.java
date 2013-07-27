@@ -38,6 +38,7 @@ public class MoneyController {
         final DB moneyDB = mongoClient.getDB("money");
 
         cfg = createFreemarkerConfiguration();
+        cfg.setDefaultEncoding("UTF-8");
 
         accountRoutes = new AccountRoutes(cfg, moneyDB);
         categoriesRoutes = new CategoriesRoutes(cfg, moneyDB);
@@ -45,6 +46,7 @@ public class MoneyController {
         commonRoutes = new CommonRoutes(cfg, moneyDB);
 
         setPort(8082);
+
         accountRoutes.initHomePage();
         categoriesRoutes.initCategoriesPage();
         homeRoutes.initHomePage();

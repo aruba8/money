@@ -9,11 +9,14 @@ import money.logic.AccountsDAO;
 import money.logic.CategoriesDAO;
 import money.logic.SessionDAO;
 import money.logic.TransactionsDAO;
+import org.apache.commons.lang3.StringEscapeUtils;
 import spark.Request;
 import spark.Response;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 import static spark.Spark.get;
@@ -53,10 +56,19 @@ public class HomeRoutes {
                 } else {
                     SimpleHash root = new SimpleHash();
                     TreeMap categories = categoriesDAO.getCategories(username, false);
-                    TreeMap accounts = accountsDAO.getAccounts(username);
+                    TreeMap<String, String> accounts = accountsDAO.getAccounts(username);
+
+                    Map<String, Double> accountsMapWithSum = new HashMap<String, Double>();
+
+                    for (String key : accounts.keySet()) {
+                        accountsMapWithSum.put(accounts.get(key), transactionsDAO.getSumOfAccount(key));
+                    }
+
+
                     root.put("username", username);
                     root.put("categories", categories);
                     root.put("accounts", accounts);
+                    root.put("accountsWithSum", accountsMapWithSum);
                     template.process(root, writer);
                 }
             }
@@ -66,21 +78,20 @@ public class HomeRoutes {
             @Override
             protected void doHandle(Request request, Response response, Writer writer) throws IOException, TemplateException {
                 String username = sessionDAO.findUserNameBySessionId(MoneyController.getSessionCookie(request));
-                String accountId = request.queryParams("account");
-                String categoryId = request.queryParams("category");
-                String comment = request.queryParams("comment");
+                String accountId = StringEscapeUtils.unescapeHtml4(request.queryParams("account"));
+                String categoryId = StringEscapeUtils.unescapeHtml4(request.queryParams("category"));
+                String comment = StringEscapeUtils.unescapeHtml4(request.queryParams("comment"));
+                String expenses = request.queryParams("expenses");
 
-                Double sum = Double.parseDouble(request.queryParams("expenses"));
-
-                if (sum == 0 || sum == null) {
+                if (expenses == null || expenses.equals("")) {
                     response.redirect("/");
                 }
+
+                Double sum = -Double.parseDouble(expenses);
 
                 transactionsDAO.addTransaction(username, accountId, categoryId, false, sum, comment);
 
                 response.redirect("/");
-
-
             }
         });
 
