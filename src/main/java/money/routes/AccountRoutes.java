@@ -7,7 +7,6 @@ import freemarker.template.TemplateException;
 import money.MoneyController;
 import money.logic.AccountsDAO;
 import money.logic.SessionDAO;
-import org.apache.commons.lang3.StringEscapeUtils;
 import spark.Request;
 import spark.Response;
 
@@ -63,7 +62,7 @@ public class AccountRoutes {
             protected void doHandle(Request request, Response response, Writer writer) throws IOException, TemplateException {
                 String cookie = MoneyController.getSessionCookie(request);
                 String username = sessionDAO.findUserNameBySessionId(cookie);
-                String accountName = StringEscapeUtils.escapeHtml4(request.queryParams("accountName"));
+                String accountName = request.queryParams("accountName"); //StringEscapeUtils.escapeHtml4(request.queryParams("accountName"));
                 Set<String> params = request.queryParams();
                 Set<String> accountsToDelete = new HashSet<String>(params);
                 accountsToDelete.remove("add");

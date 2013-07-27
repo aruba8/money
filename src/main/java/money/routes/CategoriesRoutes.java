@@ -67,7 +67,7 @@ public class CategoriesRoutes {
                 String username = sessionDAO.findUserNameBySessionId(cookie);
 
                 String add = request.queryParams("add");
-                String categoryName = StringEscapeUtils.escapeHtml4(request.queryParams("categoryName"));
+                String categoryName = request.queryParams("categoryName");
                 String typeOption = StringEscapeUtils.escapeHtml4(request.queryParams("type"));
                 Set params = request.queryParams();
                 Set newParams = new HashSet(params);
