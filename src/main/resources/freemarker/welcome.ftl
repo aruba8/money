@@ -16,12 +16,12 @@
 </head>
 
 <body>
-Welcome ${username}
+Добро пожаловать ${username}
 <p>
 <ul>
-    <li><a href="/">Goto Home</a></li>
+    <li><a href="/">На главную</a></li>
     <li>
-        <a href="/logout">Logout</a>
+        <a href="/logout">Выйти</a>
     </li>
 
 

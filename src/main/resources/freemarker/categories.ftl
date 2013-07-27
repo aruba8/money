@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/html" lang="ru-RU">
 <head>
-    <title>Categories</title>
+    <title>Категории</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style type="text/css">
         .label {
@@ -18,9 +18,9 @@
 
 <body>
 
-<a href="/">Go home</a>
+<a href="/">На главную</a>
 
-<h3>Categories</h3>
+<h3>Категории</h3>
 
 <#if iCategoriesSize+expCategoriesSize gt 0 >
 <form method="post">
@@ -40,25 +40,28 @@
     </#if>
     </br>
     </br>
-    <input type="submit" value="delete category">
+    <input type="submit" value="удалить категорию">
 </#if>
 
 </form>
+
+<br/>
+<br/>
 
 
 <form method="post">
     <table>
         <tr>
             <td class="label">
-                Add category
+                Добавить категорию
             </td>
             <td>
                 <input type="text" name="categoryName" value="">
             </td>
             <td>
                 <select name="type">
-                    <option value="expenses">Expenses</option>
-                    <option value="income">Income</option>
+                    <option value="expenses">Расход</option>
+                    <option value="income">Доход</option>
                 </select>
             </td>
             <td class="error">
@@ -67,8 +70,8 @@
     </table>
 
     <input type="hidden" name="add" value="true">
-    <input type="submit" value="add category">
+    <input type="submit" value="Добавить категорию">
 </form>
-<a href="/logout">Logout</a>
+<a href="/logout">Выход</a>
 </body>
 </html>

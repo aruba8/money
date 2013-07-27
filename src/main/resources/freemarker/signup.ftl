@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Sign Up</title>
+    <title>Регистрация</title>
     <style type="text/css">
         .label {
             text-align: right
@@ -16,17 +16,17 @@
 </head>
 
 <body>
-Already a user? <a href="/login">Login</a>
+Уже зарегистрированы? <a href="/login">Войти</a>
 
 <p>
 
-<h2>Signup</h2>
+<h2>Регистрация</h2>
 
 <form method="post">
     <table>
         <tr>
             <td class="label">
-                Username
+                Логин
             </td>
             <td>
                 <input type="text" name="username" value="${username}">
@@ -39,7 +39,7 @@ Already a user? <a href="/login">Login</a>
 
         <tr>
             <td class="label">
-                Password
+                Пароль
             </td>
             <td>
                 <input type="password" name="password" value="">
@@ -52,7 +52,7 @@ Already a user? <a href="/login">Login</a>
 
         <tr>
             <td class="label">
-                Verify Password
+                Пароль еще раз
             </td>
             <td>
                 <input type="password" name="verify" value="">
@@ -65,7 +65,7 @@ Already a user? <a href="/login">Login</a>
 
         <tr>
             <td class="label">
-                Email (optional)
+                Email (опционально)
             </td>
             <td>
                 <input type="text" name="email" value="${email}">

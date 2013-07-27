@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Accounts</title>
+    <title>Счета</title>
     <style type="text/css">
         .label {
             text-align: right
@@ -17,9 +17,9 @@
 
 <body>
 
-<a href="/">Go home</a>
+<a href="/">На главную</a>
 
-<h3>Accounts</h3>
+<h3>Счета</h3>
 
 <#if accountsSize != 0>
 <form method="post">
@@ -27,7 +27,7 @@
         <li><input type="checkbox" name=${account}> ${accounts[account]}</li>
     </#list>
     <input type="hidden" name="add" value="false">
-    <input type="submit" value="delete account">
+    <input type="submit" value="удалить счет">
 
 </form>
 </#if>
@@ -39,7 +39,7 @@
     <table>
         <tr>
             <td class="label">
-                account name
+                Название счета
             </td>
             <td>
                 <input type="text" name="accountName" value="">
@@ -50,9 +50,9 @@
     </table>
 
     <input type="hidden" name="add" value="true">
-    <input type="submit" value="add account">
+    <input type="submit" value="Добавить счет">
 </form>
-<a href="/logout">Logout</a>
+<a href="/logout">Выйти</a>
 </body>
 
 </html>

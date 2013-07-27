@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Home</title>
+    <title>Главная</title>
     <style type="text/css">
         .label {
             text-align: right
@@ -16,18 +16,18 @@
 </head>
 
 <body>
-<a href="/accounts">Accounts</a>
-<a href="/categories">Categories</a>
+<a href="/accounts">Счета</a>
+<a href="/categories">Категории</a>
 
 <form method="post">
     <table>
         <tbody>
         <tr>
-            <td>Expenses</td>
+            <td>Расход</td>
             <td><input type="text" name="expenses" value=""></td>
         </tr>
         <tr>
-            <td>Category</td>
+            <td>Категория</td>
             <td>
                 <select name="category">
                 <#list categories?keys as category>
@@ -37,7 +37,7 @@
             </td>
         </tr>
         <tr>
-            <td>Account</td>
+            <td>Счет</td>
             <td>
                 <select name="account">
                 <#list accounts?keys as account>
@@ -47,11 +47,11 @@
             </td>
         </tr>
         <tr>
-            <td>Comment</td>
+            <td>Комментарий</td>
             <td><input type="text" name="comment"></td>
         </tr>
         <tr>
-            <td><input type="submit" value="save"></td>
+            <td><input type="submit" value="ОК"></td>
             <td></td>
         </tr>
         </tbody>
@@ -64,6 +64,6 @@
 
 </#list>
 
-<a href="/logout">Logout</a>
+<a href="/logout">Выход</a>
 </body>
 </html>

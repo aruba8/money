@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Login</title>
+    <title>Вход</title>
     <style type="text/css">
         .label {
             text-align: right
@@ -16,17 +16,17 @@
 </head>
 
 <body>
-Need to Create an account? <a href="/signup">Signup</a>
+Нужен аккаунт? <a href="/signup">Зарегистрироваться</a>
 
 <p>
 
-<h2>Login</h2>
+<h2>Вход</h2>
 
 <form method="post">
     <table>
         <tr>
             <td class="label">
-                Username
+                Логин
             </td>
             <td>
                 <input type="text" name="username" value="${username}">
@@ -37,7 +37,7 @@ Need to Create an account? <a href="/signup">Signup</a>
 
         <tr>
             <td class="label">
-                Password
+                Пароль
             </td>
             <td>
                 <input type="password" name="password" value="">
