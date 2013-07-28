@@ -3,14 +3,8 @@
 <html>
 <head>
     <title>Welcome</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen">
     <style type="text/css">
-        .label {
-            text-align: right
-        }
-
-        .error {
-            color: red
-        }
     </style>
 
 </head>

@@ -99,7 +99,9 @@ public class CommonRoutes {
                         response.redirect("/internal_error");
                     } else {
                         // set the cookie for the user's browser
-                        response.raw().addCookie(new Cookie("session", sessionID));
+                        Cookie cookie = new Cookie("session", sessionID);
+                        cookie.setMaxAge(14400);
+                        response.raw().addCookie(cookie);
 
                         response.redirect("/welcome");
                     }

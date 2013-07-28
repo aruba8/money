@@ -11,6 +11,7 @@ import javax.servlet.http.Cookie;
 import java.io.IOException;
 
 import static spark.Spark.setPort;
+import static spark.Spark.staticFileLocation;
 
 /**
  * author: erik
@@ -44,6 +45,8 @@ public class MoneyController {
         commonRoutes = new CommonRoutes(cfg, moneyDB);
         incomeRoutes = new IncomeRoutes(cfg, moneyDB);
 
+        staticFileLocation("/statics");
+
         setPort(8082);
 
         accountRoutes.initHomePage();
@@ -57,6 +60,8 @@ public class MoneyController {
     private Configuration createFreemarkerConfiguration() {
         Configuration retVal = new Configuration();
         retVal.setClassForTemplateLoading(MoneyController.class, "/freemarker");
+
+
         return retVal;
     }
 
