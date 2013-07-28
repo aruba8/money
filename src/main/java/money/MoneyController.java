@@ -23,6 +23,7 @@ public class MoneyController {
     private final HomeRoutes homeRoutes;
     private final CommonRoutes commonRoutes;
     private final IncomeRoutes incomeRoutes;
+    private final TransfersRoutes transfersRoutes;
 
     public static void main(String[] args) throws IOException {
         if (args.length == 0) {
@@ -44,6 +45,7 @@ public class MoneyController {
         homeRoutes = new HomeRoutes(cfg, moneyDB);
         commonRoutes = new CommonRoutes(cfg, moneyDB);
         incomeRoutes = new IncomeRoutes(cfg, moneyDB);
+        transfersRoutes = new TransfersRoutes(cfg, moneyDB);
 
         staticFileLocation("/statics");
 
@@ -54,6 +56,7 @@ public class MoneyController {
         homeRoutes.initHomePage();
         commonRoutes.initCommonPages();
         incomeRoutes.initIncomePage();
+        transfersRoutes.initTransfersPages();
     }
 
 
