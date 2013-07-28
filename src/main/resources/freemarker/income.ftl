@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html" lang="ru-RU">
 <head>
     <title>Доходы</title>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 

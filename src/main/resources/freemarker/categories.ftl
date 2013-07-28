@@ -4,6 +4,7 @@
 <head>
     <title>Категории</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style type="text/css">
         .label {
             text-align: right
