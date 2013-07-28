@@ -18,6 +18,10 @@
 <body>
 
 <a href="/">На главную</a>
+<a href="/categories">Категории</a>
+<a href="/income">Доходы</a>
+<a href="/transfers">Переводы</a>
+
 
 <h3>Счета</h3>
 

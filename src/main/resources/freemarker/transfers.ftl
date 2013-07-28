@@ -8,6 +8,9 @@
 <body>
 
 <a href="/">На главную</a>
+<a href="/accounts">Счета</a>
+<a href="/categories">Категории</a>
+<a href="/income">Доходы</a>
 
 
 <form method="post">

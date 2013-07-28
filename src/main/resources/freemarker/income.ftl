@@ -7,6 +7,10 @@
 <body>
 
 <a href="/">На главную</a>
+<a href="/accounts">Счета</a>
+<a href="/categories">Категории</a>
+<a href="/transfers">Переводы</a>
+
 
 <form method="post">
     <table>
