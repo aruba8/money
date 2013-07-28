@@ -19,6 +19,7 @@
 <a href="/accounts">Счета</a>
 <a href="/categories">Категории</a>
 <a href="/income">Доходы</a>
+<a href="/transfers">Переводы</a>
 
 <form method="post">
     <table>
