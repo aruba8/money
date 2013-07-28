@@ -1,2 +1,2 @@
 use money
-db.users.ensureIndex({"user":1}, {"unique":true})
+db.users.ensureIndex({"username":1}, {"unique":true})
