@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/html" lang="ru-RU">
 <head>
     <title>Вход</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <style type="text/css">
         .label {
