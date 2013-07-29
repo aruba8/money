@@ -31,7 +31,7 @@
                 Логин
             </td>
             <td>
-                <input type="text" name="username" value="${username}">
+                <input type="text" name="username" value="${username}"/>
             </td>
             <td class="error">
             </td>
@@ -42,7 +42,7 @@
                 Пароль
             </td>
             <td>
-                <input type="password" name="password" value="">
+                <input type="password" name="password" value=""/>
             </td>
             <td class="error">
             ${login_error}
