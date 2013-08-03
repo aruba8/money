@@ -40,7 +40,9 @@
                 <tr>
                     <td>Доход</td>
                     <td><input type="text" name="sum"/></td>
-                    <td><input type="submit" value="ок"/></td>
+                    <td>
+                        <button class="btn" type="submit">OK</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>Категория</td>

@@ -76,13 +76,12 @@ public class IncomeRoutes {
 
                 if (ssum == null || ssum.equals("")) {
                     response.redirect("/income");
+                } else {
+                    Double sum = Double.parseDouble(ssum);
+                    transactionsDAO.addTransaction(username, accountId, categoryId, true, sum, comment);
+                    response.redirect("/income");
                 }
 
-                Double sum = Double.parseDouble(ssum);
-
-                transactionsDAO.addTransaction(username, accountId, categoryId, true, sum, comment);
-
-                response.redirect("/income");
             }
         });
 

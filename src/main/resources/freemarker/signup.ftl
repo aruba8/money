@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/html" lang="ru-RU">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Регистрация</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -11,67 +11,18 @@
 </head>
 
 <body>
-Уже зарегистрированы? <a href="/login">Войти</a>
+<div class="container">
+    <form class="form-signin" method="post" action="/signup">
+        Уже зарегистрированы? <a href="/login">Войти</a>
 
-<h2>Регистрация</h2>
-
-<form method="post" action="/signup">
-    <table>
-        <tr>
-            <td class="label">
-                Логин
-            </td>
-            <td>
-                <input type="text" name="username" value="${username}"/>
-            </td>
-            <td class="error">
-            ${username_error!""}
-
-            </td>
-        </tr>
-
-        <tr>
-            <td class="label">
-                Пароль
-            </td>
-            <td>
-                <input type="password" name="password" value=""/>
-            </td>
-            <td class="error">
-            ${password_error!""}
-
-            </td>
-        </tr>
-
-        <tr>
-            <td class="label">
-                Пароль еще раз
-            </td>
-            <td>
-                <input type="password" name="verify" value=""/>
-            </td>
-            <td class="error">
-            ${verify_error!""}
-
-            </td>
-        </tr>
-
-        <tr>
-            <td class="label">
-                Email (опционально)
-            </td>
-            <td>
-                <input type="text" name="email" value="${email}"/>
-            </td>
-            <td class="error">
-            ${email_error!""}
-
-            </td>
-        </tr>
-    </table>
-
-    <input type="submit"/>
-</form>
+        <h2>Регистрация</h2>
+        <input class="input-block-level" type="text" name="username" value="${username}" placeholder="логин"/>
+        <input class="input-block-level" type="password" name="password" value="" placeholder="пароль"/>
+        <input class="input-block-level" type="password" name="verify" value="" placeholder="пароль еще раз"/>
+        <input class="input-block-level" type="text" name="email" value="${email}" placeholder="email (опционально)"/>
+        <button class="btn-primary" type="submit"> Зарегистрироваться</button>
+    </form>
+</div>
 </body>
 
 </html>

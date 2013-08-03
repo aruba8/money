@@ -65,7 +65,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Перевести"/></td>
+                    <td>
+                        <button class="btn" type="submit">Перевести</button>
+                    </td>
                     <td></td>
                 </tr>
                 <tr>

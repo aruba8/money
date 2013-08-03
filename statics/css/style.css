@@ -18,6 +18,14 @@
     padding: 10px;
 }
 
+.main h4 {
+    margin: 0 25px;
+}
+
+.main li {
+    list-style: none;
+}
+
 .main > a {
     margin: 10px;
 }

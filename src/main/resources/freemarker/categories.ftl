@@ -7,16 +7,6 @@
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
 
-    <style type="text/css">
-        .label {
-            text-align: right
-        }
-
-        .error {
-            color: red
-        }
-    </style>
-
 </head>
 
 <body>
@@ -50,7 +40,8 @@
             <h4>Доходы</h4>
             <ul>
                 <#list iCategories?keys as category>
-                    <li><input type="checkbox" name="${category}"/> ${iCategories[category]}</li>
+                    <li><label class="checkbox inline"><input type="checkbox"
+                                                              name="${category}"/> ${iCategories[category]}</label></li>
                 </#list>
             </ul>
         </#if>
@@ -60,7 +51,9 @@
 
             <ul>
                 <#list expCategories?keys as category>
-                    <li><input type="checkbox" name="${category}"/> ${expCategories[category]}</li>
+                    <li><label class="checkbox inline"><input type="checkbox"
+                                                              name="${category}"/>${expCategories[category]}</label>
+                    </li>
                 </#list>
             </ul>
             <input type="hidden" name="add" value="false"/>
