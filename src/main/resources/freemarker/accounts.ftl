@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/html" lang="ru-RU">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Счета</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style type="text/css">
         .label {
             text-align: right
@@ -29,10 +27,10 @@
 <#if accountsSize != 0>
 <form method="post">
     <#list accounts?keys as account>
-        <li><input type="checkbox" name=${account}> ${accounts[account]}</li>
+        <li><input type="checkbox" name="${account}"/> ${accounts[account]}</li>
     </#list>
-    <input type="hidden" name="add" value="false">
-    <input type="submit" value="удалить счет">
+    <input type="hidden" name="add" value="false"/>
+    <input type="submit" value="удалить счет"/>
 
 </form>
 </#if>
@@ -40,22 +38,22 @@
 
 
 
-<form method="post">
+<form method="post" action="/accounts">
     <table>
         <tr>
             <td class="label">
                 Название счета
             </td>
             <td>
-                <input type="text" name="accountName" value="">
+                <input type="text" name="accountName" value=""/>
             </td>
             <td class="error">
             </td>
         </tr>
     </table>
 
-    <input type="hidden" name="add" value="true">
-    <input type="submit" value="Добавить счет">
+    <input type="hidden" name="add" value="true"/>
+    <input type="submit" value="Добавить счет"/>
 </form>
 <a href="/logout">Выйти</a>
 </body>

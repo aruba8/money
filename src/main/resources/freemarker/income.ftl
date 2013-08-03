@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" lang="ru-RU">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Доходы</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
 
@@ -12,7 +11,7 @@
 <a href="/transfers">Переводы</a>
 
 
-<form method="post">
+<form method="post" action="/income">
     <table>
         <tbody>
         <tr>
@@ -25,7 +24,7 @@
             <td>
                 <select name="category">
                 <#list categories?keys as category>
-                    <option value=${category}>${categories[category]}</option>
+                    <option value='${category}'>${categories[category]}</option>
                 </#list>
                 </select>
             </td>
@@ -36,7 +35,7 @@
             <td>
                 <select name="account">
                 <#list accounts?keys as account>
-                    <option value=${account}>${accounts[account]}</option>
+                    <option value='${account}'>${accounts[account]}</option>
                 </#list>
                 </select>
             </td>

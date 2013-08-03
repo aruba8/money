@@ -21,7 +21,7 @@
 
 <h2>Вход</h2>
 
-<form method="post">
+<form method="post" action="/login">
     <table>
         <tr>
             <td class="label">
