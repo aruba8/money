@@ -2,6 +2,10 @@
 #
 
 mkdir -p logs/old
+
+#sys variable for static files
+export MONEY_HOME_DIR=${PWD}/statics
+
 PROGRAM="compile exec:java -Dexec.mainClass=money.MoneyController"
 CURDATE=$(date +"%Y_%m_%d_%H%M%S")
 LOGFILE=logs/money$CURDATE.log

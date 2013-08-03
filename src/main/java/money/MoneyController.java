@@ -10,8 +10,8 @@ import spark.Request;
 import javax.servlet.http.Cookie;
 import java.io.IOException;
 
+import static spark.Spark.externalStaticFileLocation;
 import static spark.Spark.setPort;
-import static spark.Spark.staticFileLocation;
 
 /**
  * author: erik
@@ -25,15 +25,18 @@ public class MoneyController {
     private final IncomeRoutes incomeRoutes;
     private final TransfersRoutes transfersRoutes;
 
+
     public static void main(String[] args) throws IOException {
+
+        String extStaticFolder = System.getenv("MONEY_HOME_DIR");
         if (args.length == 0) {
-            new MoneyController("mongodb://localhost");
+            new MoneyController("mongodb://localhost", extStaticFolder);
         } else {
-            new MoneyController(args[0]);
+            new MoneyController(args[0], extStaticFolder);
         }
     }
 
-    public MoneyController(String mongoURIString) throws IOException {
+    public MoneyController(String mongoURIString, String extStaticFolder) throws IOException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI(mongoURIString));
         final DB moneyDB = mongoClient.getDB("money");
 
@@ -47,7 +50,8 @@ public class MoneyController {
         incomeRoutes = new IncomeRoutes(cfg, moneyDB);
         transfersRoutes = new TransfersRoutes(cfg, moneyDB);
 
-        staticFileLocation("/statics");
+        //set folder for static files
+        externalStaticFileLocation(extStaticFolder);
 
         setPort(8082);
 
