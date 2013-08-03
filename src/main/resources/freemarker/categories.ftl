@@ -35,35 +35,36 @@
         </div>
 
     <#if iCategoriesSize+expCategoriesSize gt 0 >
-    <form method="post" action="/categories">
-        <#if iCategoriesSize != 0>
-            <h4>Доходы</h4>
-            <ul>
-                <#list iCategories?keys as category>
-                    <li><label class="checkbox inline"><input type="checkbox"
-                                                              name="${category}"/> ${iCategories[category]}</label></li>
-                </#list>
-            </ul>
-        </#if>
+        <form method="post" action="/categories">
+            <#if iCategoriesSize != 0>
+                <h4>Доходы</h4>
+                <ul>
+                    <#list iCategories?keys as category>
+                        <li><label class="checkbox inline"><input type="checkbox"
+                                                                  name="${category}"/> ${iCategories[category]}</label>
+                        </li>
+                    </#list>
+                </ul>
+            </#if>
 
-        <#if expCategoriesSize != 0>
-            <h4>Расходы</h4>
+            <#if expCategoriesSize != 0>
+                <h4>Расходы</h4>
 
-            <ul>
-                <#list expCategories?keys as category>
-                    <li><label class="checkbox inline"><input type="checkbox"
-                                                              name="${category}"/>${expCategories[category]}</label>
-                    </li>
-                </#list>
-            </ul>
-            <input type="hidden" name="add" value="false"/>
-        </#if>
-        <br/>
-        <br/>
-        <button type="submit" class="btn">удалить категорию</button>
+                <ul>
+                    <#list expCategories?keys as category>
+                        <li><label class="checkbox inline"><input type="checkbox"
+                                                                  name="${category}"/>${expCategories[category]}</label>
+                        </li>
+                    </#list>
+                </ul>
+                <input type="hidden" name="add" value="false"/>
+            </#if>
+            <br/>
+            <br/>
+            <button type="submit" class="btn">удалить категорию</button>
+        </form>
     </#if>
 
-    </form>
 
         <form class="form-horizontal" method="post" action="/categories">
             <div class="control-group">

@@ -16,7 +16,13 @@
         Уже зарегистрированы? <a href="/login">Войти</a>
 
         <h2>Регистрация</h2>
-        <input class="input-block-level" type="text" name="username" value="${username}" placeholder="логин"/>
+
+        <div class="control-group ${username_error!""}">
+            <input class="input-block-level" type="text" name="username" value="${username}" placeholder="логин"/>
+        <#if username_error = 'error'>
+            <span class="help-inline">${error_message}</span>
+        </#if>
+        </div>
         <input class="input-block-level" type="password" name="password" value="" placeholder="пароль"/>
         <input class="input-block-level" type="password" name="verify" value="" placeholder="пароль еще раз"/>
         <input class="input-block-level" type="text" name="email" value="${email}" placeholder="email (опционально)"/>

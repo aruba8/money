@@ -19,9 +19,12 @@
         Нужен аккаунт? <a href="/signup">Зарегистрироваться</a>
 
         <h2 class="form-signin-heading">Вход</h2>
-        <input class="input-block-level" type="text" name="username" value="${username}" placeholder="логин"/>
-        <input class="input-block-level" type="password" name="password" value="" placeholder="пароль"/>
-        <button class="btn-primary" type="submit">Войти</button>
+
+        <div class="control-group ${login_error!""}">
+            <input class="input-block-level" type="text" name="username" value="${username}" placeholder="логин"/>
+            <input class="input-block-level" type="password" name="password" value="" placeholder="пароль"/>
+            <button class="btn-primary" type="submit">Войти</button>
+        </div>
     </form>
 </div>
 

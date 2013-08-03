@@ -110,7 +110,7 @@ public class CommonRoutes {
 
                     root.put("username", StringEscapeUtils.escapeHtml4(username));
                     root.put("password", "");
-                    root.put("login_error", "Invalid Login");
+                    root.put("login_error", "error");
                     template.process(root, writer);
                 }
             }
@@ -133,6 +133,7 @@ public class CommonRoutes {
                 root.put("username_error", "");
                 root.put("email_error", "");
                 root.put("verify_error", "");
+                root.put("error_message", "");
 
                 template.process(root, writer);
             }
@@ -156,7 +157,8 @@ public class CommonRoutes {
                     System.out.println("Signup: Creating user with: " + username + " " + password);
                     if (!userDAO.addUser(username, password, email)) {
                         // duplicate user
-                        root.put("username_error", "Username already in use, Please choose another");
+                        root.put("username_error", "error");
+                        root.put("error_message", "имя уже используется");
                         template.process(root, writer);
                     } else {
                         // good user, let's start a session
