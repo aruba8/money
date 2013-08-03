@@ -5,3 +5,32 @@
 .error {
     color: red
 }
+
+.form-signin {
+    max-width: 300px;
+    margin: 0 auto 20px;
+}
+
+.main {
+    border: 1px dotted black;
+    background-color: #E2E2E2;
+    margin: 20px 28%;
+    padding: 10px;
+}
+
+.main > a {
+    margin: 10px;
+}
+
+table tbody tr td {
+    padding: 5px 10px;
+
+}
+
+select {
+    width: 164px;
+}
+
+input {
+    width: 150px;
+}
