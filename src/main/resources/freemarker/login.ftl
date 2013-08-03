@@ -2,55 +2,29 @@
 <head>
     <title>Вход</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
 
-    <style type="text/css">
-        .label {
-            text-align: right
-        }
-
-        .error {
-            color: red
-        }
-    </style>
 
 </head>
 
 <body>
-Нужен аккаунт? <a href="/signup">Зарегистрироваться</a>
+
+<div class="container">
 
 
-<h2>Вход</h2>
+    <form class="form-signin" method="post" action="/login">
+        Нужен аккаунт? <a href="/signup">Зарегистрироваться</a>
 
-<form method="post" action="/login">
-    <table>
-        <tr>
-            <td class="label">
-                Логин
-            </td>
-            <td>
-                <input type="text" name="username" value="${username}"/>
-            </td>
-            <td class="error">
-            </td>
-        </tr>
+        <h2 class="form-signin-heading">Вход</h2>
+        <input class="input-block-level" type="text" name="username" value="${username}" placeholder="логин"/>
+        <input class="input-block-level" type="password" name="password" value="" placeholder="пароль"/>
+        <button class="btn-primary" type="submit">Войти</button>
+    </form>
+</div>
 
-        <tr>
-            <td class="label">
-                Пароль
-            </td>
-            <td>
-                <input type="password" name="password" value=""/>
-            </td>
-            <td class="error">
-            ${login_error}
-
-            </td>
-        </tr>
-
-    </table>
-
-    <input type="submit"/>
-</form>
 </body>
 
 </html>

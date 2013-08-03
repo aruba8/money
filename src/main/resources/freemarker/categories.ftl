@@ -2,6 +2,11 @@
 <head>
     <title>Категории</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+
     <style type="text/css">
         .label {
             text-align: right
@@ -15,65 +20,78 @@
 </head>
 
 <body>
+<div class="container">
+    <div class="main">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li>
+                        <a href="/">Главная</a>
+                    </li>
+                    <li>
+                        <a href="/accounts">Счета</a>
+                    </li>
+                    <li class="active">
+                        <a href="/categories">Категории</a>
+                    </li>
+                    <li>
+                        <a href="/income">Доходы</a>
+                    </li>
+                    <li>
+                        <a href="/transfers">Переводы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-<a href="/">На главную</a>
-<a href="/accounts">Счета</a>
-<a href="/income">Доходы</a>
-<a href="/transfers">Переводы</a>
+    <#if iCategoriesSize+expCategoriesSize gt 0 >
+    <form method="post" action="/categories">
+        <#if iCategoriesSize != 0>
+            <h4>Доходы</h4>
+            <ul>
+                <#list iCategories?keys as category>
+                    <li><input type="checkbox" name="${category}"/> ${iCategories[category]}</li>
+                </#list>
+            </ul>
+        </#if>
 
+        <#if expCategoriesSize != 0>
+            <h4>Расходы</h4>
 
-<h3>Категории</h3>
-
-<#if iCategoriesSize+expCategoriesSize gt 0 >
-<form method="post" action="/categories">
-    <#if iCategoriesSize != 0>
-        <h4>Доходы</h4>
-        <#list iCategories?keys as category>
-            <li><input type="checkbox" name="${category}"/> ${iCategories[category]}</li>
-        </#list>
+            <ul>
+                <#list expCategories?keys as category>
+                    <li><input type="checkbox" name="${category}"/> ${expCategories[category]}</li>
+                </#list>
+            </ul>
+            <input type="hidden" name="add" value="false"/>
+        </#if>
+        <br/>
+        <br/>
+        <button type="submit" class="btn">удалить категорию</button>
     </#if>
 
-    <#if expCategoriesSize != 0>
-        <h4>Расходы</h4>
-        <#list expCategories?keys as category>
-            <li><input type="checkbox" name="${category}"/> ${expCategories[category]}</li>
-        </#list>
-        <input type="hidden" name="add" value="false"/>
-    </#if>
-    <br/>
-    <br/>
-    <input type="submit" value="удалить категорию"/>
-</#if>
+    </form>
 
-</form>
+        <form class="form-horizontal" method="post" action="/categories">
+            <div class="control-group">
+                <div class="control">
+                    <input class="input-medium" type="text" name="categoryName" placeholder="добавить категорию"/>
+                </div>
+                <div class="control">
+                    <select name="type">
+                        <option value="expenses">Расход</option>
+                        <option value="income">Доход</option>
+                    </select>
+                </div>
+                <input type="hidden" name="add" value="true"/>
 
-<br/>
-<br/>
-
-
-<form method="post" action="/categories">
-    <table>
-        <tr>
-            <td class="label">
-                Добавить категорию
-            </td>
-            <td>
-                <input type="text" name="categoryName" value=""/>
-            </td>
-            <td>
-                <select name="type">
-                    <option value="expenses">Расход</option>
-                    <option value="income">Доход</option>
-                </select>
-            </td>
-            <td class="error">
-            </td>
-        </tr>
-    </table>
-
-    <input type="hidden" name="add" value="true"/>
-    <input type="submit" value="Добавить категорию"/>
-</form>
-<a href="/logout">Выход</a>
+                <div class="control">
+                    <button class="btn" type="submit">Добавить категорию</button>
+                </div>
+            </div>
+        </form>
+        <a href="/logout">Выход</a>
+    </div>
+</div>
 </body>
 </html>

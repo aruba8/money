@@ -2,15 +2,11 @@
 <head>
     <title>Регистрация</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <style type="text/css">
-        .label {
-            text-align: right
-        }
-
-        .error {
-            color: red
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
 
 </head>
 

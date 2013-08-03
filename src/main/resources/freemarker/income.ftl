@@ -2,53 +2,78 @@
 <head>
     <title>Доходы</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+
 </head>
 <body>
+<div class="container">
+    <div class="main">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li>
+                        <a href="/">Главная</a>
+                    </li>
+                    <li>
+                        <a href="/accounts">Счета</a>
+                    </li>
+                    <li>
+                        <a href="/categories">Категории</a>
+                    </li>
+                    <li class="active">
+                        <a href="/income">Доходы</a>
+                    </li>
+                    <li>
+                        <a href="/transfers">Переводы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-<a href="/">На главную</a>
-<a href="/accounts">Счета</a>
-<a href="/categories">Категории</a>
-<a href="/transfers">Переводы</a>
 
-
-<form method="post" action="/income">
-    <table>
-        <tbody>
-        <tr>
-            <td>Доход</td>
-            <td><input type="text" name="sum"/></td>
-            <td><input type="submit" value="ок"/></td>
-        </tr>
-        <tr>
-            <td>Категория</td>
-            <td>
-                <select name="category">
-                <#list categories?keys as category>
-                    <option value='${category}'>${categories[category]}</option>
-                </#list>
-                </select>
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Счет</td>
-            <td>
-                <select name="account">
-                <#list accounts?keys as account>
-                    <option value='${account}'>${accounts[account]}</option>
-                </#list>
-                </select>
-            </td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Комментарий</td>
-            <td><input type="text" name="comment"/></td>
-        </tr>
-        </tbody>
-    </table>
-</form>
-
+        <form method="post" action="/income">
+            <table>
+                <tbody>
+                <tr>
+                    <td>Доход</td>
+                    <td><input type="text" name="sum"/></td>
+                    <td><input type="submit" value="ок"/></td>
+                </tr>
+                <tr>
+                    <td>Категория</td>
+                    <td>
+                        <select name="category">
+                        <#list categories?keys as category>
+                            <option value='${category}'>${categories[category]}</option>
+                        </#list>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Счет</td>
+                    <td>
+                        <select name="account">
+                        <#list accounts?keys as account>
+                            <option value='${account}'>${accounts[account]}</option>
+                        </#list>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Комментарий</td>
+                    <td><input type="text" name="comment"/></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        <a href="/logout">Выход</a>
+    </div>
+</div>
 </body>
 
 </html>
