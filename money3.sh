@@ -14,7 +14,7 @@ PROG_BIN="mvn $PROGRAM"
 PID=`ps -aef | grep "$PROGRAM" | grep -v grep | awk '{print $2}'`
 
 #move logs modified more than 24h ago to logs/old folder
-find logs/ -type f -mtime -1 -name "*.log*" -exec mv {} logs/old >/dev/null 2>&1 \;
+find logs/ -maxdepth 1 -type f -mtime +1 -name "*.log*" -exec mv {} logs/old >/dev/null 2>&1 \;
 
 
 case "$1" in
