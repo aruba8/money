@@ -24,6 +24,7 @@ public class MoneyController {
     private final CommonRoutes commonRoutes;
     private final IncomeRoutes incomeRoutes;
     private final TransfersRoutes transfersRoutes;
+    private final ChartsRoutes chartsRoutes;
 
 
     public static void main(String[] args) throws IOException {
@@ -49,6 +50,7 @@ public class MoneyController {
         commonRoutes = new CommonRoutes(cfg, moneyDB);
         incomeRoutes = new IncomeRoutes(cfg, moneyDB);
         transfersRoutes = new TransfersRoutes(cfg, moneyDB);
+        chartsRoutes = new ChartsRoutes(cfg, moneyDB);
 
         //set folder for static files
         externalStaticFileLocation(extStaticFolder);
@@ -61,6 +63,7 @@ public class MoneyController {
         commonRoutes.initCommonPages();
         incomeRoutes.initIncomePage();
         transfersRoutes.initTransfersPages();
+        chartsRoutes.initChartPage();
     }
 
 

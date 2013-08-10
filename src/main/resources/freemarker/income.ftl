@@ -29,6 +29,9 @@
                     <li>
                         <a href="/transfers">Переводы</a>
                     </li>
+                    <li>
+                        <a href="/charts">Анализ</a>
+                    </li>
                 </ul>
             </div>
         </div>
