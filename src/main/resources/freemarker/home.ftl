@@ -4,7 +4,6 @@
 <head>
     <title>Главная</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>

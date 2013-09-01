@@ -2,6 +2,7 @@
 <head>
     <title>Welcome</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="1;URL= /" />
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>

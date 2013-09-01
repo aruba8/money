@@ -27,7 +27,6 @@ function getHTTPRequestObject() {
 
 function parseJson(text) {
     return JSON.parse(text);
-    ;
 }
 
 function getDataForChart() {
@@ -53,37 +52,29 @@ function getDataForChart() {
     return chartData;
 }
 
-var data;
 
 function createData() {
-    data = getDataForChart();
-    AmCharts.ready(function () {
-        // PIE CHART
-        chart = new AmCharts.AmPieChart();
-        chart.dataProvider = data;
-        chart.titleField = "category";
-        chart.valueField = "litres";
-        chart.outlineColor = "#FFFFFF";
-        chart.outlineAlpha = 0.8;
-        chart.outlineThickness = 2;
-        chart.fontSize = 11;
-        chart.labelsEnabled = false;
-        chart.startDuration = 0;
-//        chart.sequencedAnimation = true;
-//        chart.balloonText = "";
-//        chart.removeLegend();
-//        chart.balloon.enabled = false;
-
-
-        legend = new AmCharts.AmLegend();
-        legend.align = 'center';
-        legend.markerType = 'circle';
-        chart.addLegend(legend);
-
-
-        // WRITE
-        chart.write("chartdiv");
-    });
+    var data = getDataForChart();
+    if(data.length > 0){
+        AmCharts.ready(function () {
+            // PIE CHART
+            chart = new AmCharts.AmPieChart();
+            chart.dataProvider = data;
+            chart.titleField = "category";
+            chart.valueField = "litres";
+            chart.outlineColor = "#FFFFFF";
+            chart.outlineAlpha = 0.8;
+            chart.outlineThickness = 2;
+            chart.fontSize = 11;
+            chart.labelsEnabled = false;
+            chart.startDuration = 0;
+            legend = new AmCharts.AmLegend();
+            legend.align = 'center';
+            legend.markerType = 'circle';
+            chart.addLegend(legend);
+            chart.write("chartdiv");
+        });
+    }
 
 
 }

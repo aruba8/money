@@ -1,8 +1,10 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Категории</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
@@ -68,9 +70,9 @@
         </form>
     </#if>
 
-
-        <form class="form-horizontal" method="post" action="/categories">
-            <div class="control-group">
+        <div class="controls">
+            <form class="form-horizontal" method="post" action="/categories">
+            <#--<div class="control-group">-->
                 <div class="control">
                     <input class="input-medium" type="text" name="categoryName" placeholder="добавить категорию"/>
                 </div>
@@ -80,13 +82,14 @@
                         <option value="income">Доход</option>
                     </select>
                 </div>
-                <input type="hidden" name="add" value="true"/>
+                    <input type="hidden" name="add" value="true"/>
 
                 <div class="control">
                     <button class="btn" type="submit">Добавить категорию</button>
                 </div>
-            </div>
-        </form>
+                <#--</div>-->
+            </form>
+        </div>
         <a href="/logout">Выход</a>
     </div>
 </div>
