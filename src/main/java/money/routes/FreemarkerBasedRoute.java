@@ -34,6 +34,7 @@ public abstract class FreemarkerBasedRoute extends Route {
         StringWriter writer = new StringWriter();
         try {
             response.header("Content-Type", "text/html;charset=UTF-8");
+            response.header("Accept-Encoding", "deflate,sdch");
             doHandle(request, response, writer);
         } catch (Exception e) {
             e.printStackTrace();
