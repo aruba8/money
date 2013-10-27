@@ -48,7 +48,7 @@ form input{
 #chartdiv {
     width: 400px;
     height: 200px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     border: 1px dotted #000000;
 }
 
@@ -67,3 +67,8 @@ form input{
 .control {
     margin: 10px 5px 10px 5px;
 }
+
+.ui-datepicker-calendar {
+    display: none;
+}
+

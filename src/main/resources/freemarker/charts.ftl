@@ -5,13 +5,16 @@
     <link href="css/style.css" rel="stylesheet"/>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
-    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
-    <script type="text/javascript" src="amcharts/amcharts.js"></script>
-    <script type="text/javascript" src="js/charts.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
-
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/j.js"></script>
 </head>
 <body>
+<script src="js/highcharts.js"></script>
+<script src="js/exporting.js"></script>
+
 
 <div class="container">
     <div class="main">
@@ -40,14 +43,10 @@
             </div>
         </div>
 
+        <input name="startDate" id="startDate" class="date-picker" />
         <div id="chartdiv"></div>
     </div>
 </div>
-
-
-<script>
-    $(document).ready(createData());
-</script>
 
 </body>
 </html>

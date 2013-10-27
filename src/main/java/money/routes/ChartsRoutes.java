@@ -8,12 +8,14 @@ import money.MoneyController;
 import money.logic.AccountsDAO;
 import money.logic.ChartsDAO;
 import money.logic.SessionDAO;
+import org.json.JSONArray;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Date;
 import java.util.Map;
 
 import static spark.Spark.get;
@@ -59,11 +61,17 @@ public class ChartsRoutes {
 
         post(new Route("/charts") {
             @Override
-            public Object handle(Request request, Response response) {
+            public JSONArray handle(Request request, Response response) {
                 String cookie = MoneyController.getSessionCookie(request);
                 String username = sessionDAO.findUserNameBySessionId(cookie);
 
-                return chartsDAO.getSumByCategories(username, false);
+                if(request.queryParams("cq") != null){
+                    int month = Integer.parseInt(request.queryParams("month"));
+                    int year = Integer.parseInt(request.queryParams("year"));
+                    return chartsDAO.getSumByCategoriesForMonth(username, month, year, false);
+                } else {
+                    return chartsDAO.getSumByCategories(username, false);
+                }
             }
         });
     }
