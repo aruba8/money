@@ -1,5 +1,3 @@
-# This is my README
-
 ## HOW TO INSTALL PROJECT:
 
 to install this project firstly you have to download and install next tools:
